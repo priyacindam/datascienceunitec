@@ -1,0 +1,9 @@
+<suite name="Test Suite" >
+<test name="testing" > 
+ 
+ <classes>
+ <class name="testngpack.NewTest" />
+ </classes>
+  </test>
+ 
+ </suite>
