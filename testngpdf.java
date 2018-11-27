@@ -6,6 +6,8 @@ import java.util.regex.Pattern;
 import org.openqa.selenium.Alert;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.TestListenerAdapter;
@@ -104,13 +106,20 @@ public class testngpdf {
 
  //Thread.sleep(30000)
 
- public static void main(String[] args) {
+//public static void main(String[] args) {
+//TestListenerAdapter tla = new TestListenerAdapter();
+//TestNG testng = new TestNG();
+	//List<String> testFilesList = new ArrayList<String>();
+ //testFilesList.add("./testng.xml");
+	// testng.setTestSuites(testFilesList);
+// testng.setUseDefaultListeners(false);
+ //testng.run();
   	  
-  	  TestListenerAdapter testla = new TestListenerAdapter();
-  	  TestNG testng = new TestNG();
-  	  testng.setTestClasses(new Class[] {testngpdf	 .class});
-  	  testng.run();
-  	 }
+  	  //TestListenerAdapter testla = new TestListenerAdapter();
+  	  //TestNG testng = new TestNG();
+  	 // testng.setTestClasses(new Class[] {testngpdf	 .class});
+  	 // testng.run();
+//  	}
 	
     // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | win_ser_local | ]]
   

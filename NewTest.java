@@ -3,6 +3,7 @@ package testngpack;
 import org.testng.annotations.Test;
 
 import java.util.regex.Pattern;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -13,6 +14,8 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.ITestContext;
@@ -26,6 +29,7 @@ import org.testng.TestNG;
 import static org.testng.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -83,14 +87,41 @@ public class NewTest {
 	WebDriverWait wait = new WebDriverWait(driver, 5);
 	Thread.sleep(20000);
   }
+  
 
-	 public static void main(String[] args) {
+  
+    public static FirefoxProfile FirefoxDriverProfile() throws Exception {
+		FirefoxProfile profile = new FirefoxProfile();
+		profile.setPreference("browser.download.folderList", 1);
+		profile.setPreference("browser.download.manager.showWhenStarting", false);
+		//profile.setPreference("browser.download.dir", downloadPath);
+		profile.setPreference("browser.helperApps.neverAsk.openFile",
+				"text/csv,application/x-msexcel,application/excel,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml");
+		profile.setPreference("browser.helperApps.neverAsk.saveToDisk",
+"text/csv,application/x-msexcel,application/excel,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml");
+		profile.setPreference("browser.helperApps.alwaysAsk.force", false);
+		profile.setPreference("browser.download.manager.alertOnEXEOpen", false);
+		profile.setPreference("browser.download.manager.focusWhenStarting", false);
+		profile.setPreference("browser.download.manager.useWindow", false);
+		profile.setPreference("browser.download.manager.showAlertOnComplete", false);
+		profile.setPreference("browser.download.manager.closeWhenDone", false);
+		return profile;
+	}
+
+	// public static void main(String[] args) {
 	  
-	  TestListenerAdapter testla = new TestListenerAdapter();
-	  TestNG testng = new TestNG();
-	  testng.setTestClasses(new Class[] {NewTest .class});
-	  testng.run();
-	 }
+//		 TestListenerAdapter tla = new TestListenerAdapter();
+		//TestNG testng = new TestNG();
+		 //List<String> testFilesList = new ArrayList<String>();
+		//testFilesList.add("./testng.xml");
+	//testng.setTestSuites(testFilesList);
+		// testng.setUseDefaultListeners(false);
+		//testng.run();
+ //TestListenerAdapter testla = new TestListenerAdapter();
+	// TestNG testng = new TestNG();
+	  //testng.setTestClasses(new Class[] {NewTest .class});
+	// testng.run();
+//	}
 	 
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {

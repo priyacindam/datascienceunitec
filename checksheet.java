@@ -2,6 +2,8 @@ package assetreport;
 
 
 import java.util.regex.Pattern;
+import java.util.List;
+
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
@@ -34,15 +36,37 @@ public class checksheet {
     driver.findElement(By.id("CheckSheet")).click();
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filter by Asset'])[1]/following::span[1]")).click();
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='~Desk FMB110'])[3]/following::li[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Start Date'])[1]/following::span[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Start Date'])[1]/following::th[1]")).click();
-    driver.findElement(By.id("startDatePicker")).sendKeys("May 15, 2018");
+    driver.findElement(By.cssSelector("span.fa.fa-calendar")).click();
+    driver.findElement(By.xpath("//div[@id='startDatePicker']/div/ul/li/div/div/table/tbody/tr/td[3]")).click();
+ WebElement dateWidget = driver.findElement(By.id("ui-datepicker-div"));
+  driver.findElement(By.id("startDatePicker")).sendKeys("12/10/2018");
+  
+  
+  //driver.findElement(By.id('a_2018_4_24')).click();
+//  List rows=dateWidget.findElements(By.tagName("tr"));
+ //   List columns=dateWidget.findElements(By.tagName("td"));
+    
+    //for (WebElement cell: columns){
+  //  Select 13th Date 
+   //if (cell.getText().equals("13")){
+   //cell.findElement(By.linkText("13")).click();
+  //break;
+    driver.findElement(By.cssSelector("#endDatePicker > span.input-group-addon")).click();
+    driver.findElement(By.xpath("//div[@id='endDatePicker']/div/ul/li/div/div/table/tbody/tr[2]/td[4]")).click();
+    driver.findElement(By.id("endDatePicker")).sendKeys("12/11/2018");
+    
+    
+
+
+    //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Start Date'])[1]/following::span[1]")).click();
+    //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Start Date'])[1]/following::th[1]")).click();
+   // driver.findElement(By.id("startDatePicker")).sendKeys("May 15, 2018");
     Thread.sleep(5000);   
     
   //  driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Sa'])[1]/following::td[9]")).click();
     //driver.findElement(By.id("tbEndDate")).click();
     //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='End Date'])[1]/following::span[2]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Sa'])[1]/following::td[10]")).click();
+   // driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Sa'])[1]/following::td[10]")).click();
   }
 
   @AfterClass(alwaysRun = true)
