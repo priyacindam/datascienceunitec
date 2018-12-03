@@ -1,7 +1,10 @@
-package assetreport;
-
+package testngpack;
 
 import java.util.regex.Pattern;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
@@ -31,9 +34,30 @@ public class profile {
     driver.findElement(By.id("Password")).sendKeys("priya1213");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Please sign into the Argus Hub'])[1]/following::button[1]")).click();
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Dashboard'])[1]/following::span[1]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='All assets'])[2]/following::b[1]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='~Box U1'])[3]/following::li[1]")).click();
+    Thread.sleep(2000);
+  
     driver.findElement(By.linkText("Profile")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Images'])[1]/following::input[4]")).click();
-    Thread.sleep(4000);
+    Thread.sleep(2000);
+    driver.findElement(By.xpath("/html/body/div[1]/section/div/div/div/form/fieldset[1]/div/div[2]/div/div/div/div[1]/div/div[3]/input")).click();
+
+	  //Thread.sleep(2000);
+	  StringSelection ss = new StringSelection("\"C:\\Users\\Priyanka\\Documents\\index.jpg\"");
+	 Thread.sleep(2000);
+	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss,null);
+	  driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Images'])[1]/following::input[4]")).sendKeys("\"C:\\download.jpg\"");
+	Thread.sleep(5000);
+	Robot robot = new Robot();
+	  robot.keyPress(KeyEvent.VK_CONTROL);	
+	  robot.keyPress(KeyEvent.VK_V);
+	  robot.keyRelease(KeyEvent.VK_V);
+	  robot.keyRelease(KeyEvent.VK_CONTROL);
+	  robot.keyPress(KeyEvent.VK_ENTER);
+	  robot.keyRelease(KeyEvent.VK_ENTER);
+	   Thread.sleep(2000);
+	   driver.findElement(By.xpath("/html/body/div[1]/section/div/div/div/form/fieldset[1]/div/div[1]/div[7]/div/input")).click();
+	   Thread.sleep(2000);
   }
 
   @AfterClass(alwaysRun = true)
