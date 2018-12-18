@@ -1,0 +1,148 @@
+public static FirefoxProfile FirefoxDriverProfile() throws Exception {
+		FirefoxProfile profile = new FirefoxProfile();
+		profile.setPreference("browser.download.folderList", 1);
+		profile.setPreference("browser.download.manager.showWhenStarting", false);
+		//profile.setPreference("browser.download.dir", downloadPath);
+		profile.setPreference("browser.helperApps.neverAsk.openFile",
+				"text/csv,application/x-msexcel,application/excel,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml");
+		profile.setPreference("browser.helperApps.neverAsk.saveToDisk",
+"text/csv,application/x-msexcel,application/excel,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml");
+		profile.setPreference("browser.helperApps.alwaysAsk.force", false);
+		profile.setPreference("browser.download.manager.alertOnEXEOpen", false);
+		profile.setPreference("browser.download.manager.focusWhenStarting", false);
+		profile.setPreference("browser.download.manager.useWindow", false);
+		profile.setPreference("browser.download.manager.showAlertOnComplete", false);
+		profile.setPreference("browser.download.manager.closeWhenDone", false);
+		return profile;
+
+
+
+
+
+
+ set projectPath=C:\Users\Priyanka\eclipse-workspace\testng
+cd\
+cd %projectPath%
+set classpath=%projectPath%\bin;%projectPath%\lib\*;
+java org.testng.TestNG testng.xml
+
+pause
+
+
+
+
+------------------2---------------------------
+
+//  Runtime.getRuntime().exec("\"C:\\AutoIT\\script.exe\"");
+
+  // Robot robot=new Robot();
+   // robot.delay(2000);
+//
+  //  robot.keyPress(KeyEvent.VK_DOWN); // press keyboard arrow key to select Save radio button	
+   // robot.keyPress(KeyEvent.VK_DOWN);
+//  Thread.sleep(4000);
+
+  // robot.keyPress(KeyEvent.VK_TAB);
+ //  Thread.sleep(4000);
+  //  robot.keyPress(KeyEvent.VK_TAB);
+    //Thread.sleep(2000);
+    
+     //robot.keyPress(KeyEvent.VK_ENTER);
+   //robot.keyPress(KeyEvent.VK_ENTER);
+
+//Thrad.sleep(30000);
+
+
+
+
+start /wait java -jar "C:\Users\Priyanka\Documents\pdffile.jar" parameter  >>temp.txt
+
+
+
+
+
+
+
+
+public static void copy_Folder(File src, File dest)
+  throws IOException{
+
+  if(src.isDirectory()){
+  //if directory not exists, create it
+  if(!dest.exists()){
+  dest.mkdir();
+  System.out.println("Directory copied from "
+  + src + " to " + dest);
+  }
+  //list all the directory contents
+  String files[] = src.list();
+
+  for (String file : files)
+  {
+  //construct the src and dest file structure
+  File srcFile = new File(src, file);
+  File destFile = new File(dest, file);
+  //recursive copy
+  copy_Folder(srcFile,destFile);
+  }
+
+  }else
+  {
+  //if file, then copy it.
+  //Use bytes stream to support all file types
+  InputStream in = new FileInputStream(src);
+  OutputStream out = new FileOutputStream(dest);
+
+  byte[] buffer = new byte[1024];
+
+  int length;
+  //copy the file content in bytes
+  while ((length = in.read(buffer)) > 0){
+  out.write(buffer, 0, length);
+  }
+
+  in.close();
+  out.close();
+  System.out.println("File copied from " + src + " to " + dest);
+  }
+  }
+
+
+
+
+
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Test Suite" >
+<test name="testing" > 
+ 
+ <classes>
+ <class name="testngpack.NewTest" />
+  <class name="testngpack.testngpdf" />
+ 
+ </classes>
+ </test>
+ </suite>
+ 
+
+
+ WebElement dateWidget = driver.findElement(By.id("ui-datepicker-div"));  
+  List<webelement> rows=dateWidget.findElements(By.tagName("tr"));  
+  List<webelement> columns=dateWidget.findElements(By.tagName("td"));  
+    
+  for (WebElement cell: columns){  
+   //Select 13th Date   
+   if (cell.getText().equals("13")){  
+   cell.findElement(By.linkText("13")).click();  
+   break;  
+   }  
+  }   
+ }  
+}</webelement></webelement>  
+
+
+
+
+
+														
