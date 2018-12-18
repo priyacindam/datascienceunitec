@@ -143,6 +143,14 @@ public static void copy_Folder(File src, File dest)
 
 
 
+@DataProvider(name = "Authentication")
+	  
+	  public static Object[][] credentials() {
+	 
+	        return new Object[][] { { "https://geo.argustracking.nz" }, { "https://geotest.argustracking.nz" }}; 
+	       
+	  }
 
+	  @Test(dataProvider = "Authentication")
 
 														
